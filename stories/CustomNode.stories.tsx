@@ -1,3 +1,4 @@
+import {Meta, StoryFn} from '@storybook/react'
 import * as React from 'react'
 import styled from 'styled-components'
 import { FlowChartWithState, INodeDefaultProps } from '../src'
@@ -48,7 +49,7 @@ const NodeCustom = React.forwardRef(({ node, children, ...otherProps }: INodeDef
   }
 })
 
-export const CustomNodeDemo = () => {
+export const CustomNode: StoryFn = () => {
   return (
     <Page>
       <FlowChartWithState
@@ -60,3 +61,8 @@ export const CustomNodeDemo = () => {
     </Page>
   )
 }
+
+const Config: Meta = {
+}
+
+export default Config

@@ -1,4 +1,6 @@
+import {Meta} from '@storybook/react'
 import { cloneDeep, mapValues } from 'lodash'
+import {useState} from 'react'
 import * as React from 'react'
 import { FlowChart } from '../src'
 import * as actions from '../src/container/actions'
@@ -10,20 +12,23 @@ import { chartSimple } from './misc/exampleChartState'
  *
  * You could easily move this state to Redux or similar by creating your own callback actions.
  */
-export class ExternalReactState extends React.Component {
-  public state = cloneDeep(chartSimple)
-  public render () {
-    const chart = this.state
+export const ExternalReactState = () => {
+    const [state, setState] = useState(cloneDeep(chartSimple))
+
     const stateActions = mapValues(actions, (func: any) =>
-      (...args: any) => this.setState(func(...args))) as typeof actions
+      (...args: any) => setState(func(...args))) as typeof actions
 
     return (
       <Page>
         <FlowChart
-          chart={chart}
+          chart={state}
           callbacks={stateActions}
         />
       </Page>
     )
-  }
 }
+
+const Config: Meta = {
+}
+
+export default Config

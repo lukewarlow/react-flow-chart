@@ -1,9 +1,10 @@
+import {Meta, StoryFn} from '@storybook/react'
 import * as React from 'react'
 import { FlowChartWithState } from '../src'
 import { Code, Content, Message, Page, Sidebar } from './components'
 import { chartSimple } from './misc/exampleReadonlyNodesChartState'
 
-export const NodeReadonly = () => {
+export const NodeReadonly: StoryFn = () => {
   const code = {
     id: 'node1',
     type: 'read-only',
@@ -29,3 +30,8 @@ export const NodeReadonly = () => {
     </Page>
   )
 }
+
+const Config: Meta = {
+}
+
+export default Config

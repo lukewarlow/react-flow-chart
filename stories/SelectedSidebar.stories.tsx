@@ -1,3 +1,4 @@
+import {Meta} from '@storybook/react'
 import { cloneDeep, mapValues } from 'lodash'
 import * as React from 'react'
 import styled from 'styled-components'
@@ -28,36 +29,39 @@ const Button = styled.div`
   }
 `
 
-export class SelectedSidebar extends React.Component {
-  public state = cloneDeep(chartSimple)
-  public render () {
-    const chart = this.state
+export const SelectedSidebar = () => {
+    const [state, setState] = React.useState(cloneDeep(chartSimple))
+
     const stateActions = mapValues(actions, (func: any) =>
-      (...args: any) => this.setState(func(...args))) as typeof actions
+        (...args: any) => setState(func(...args))) as typeof actions
 
     return (
-      <Page>
+        <Page>
         <Content>
-          <FlowChart
-            chart={chart}
+            <FlowChart
+            chart={state}
             callbacks={stateActions}
-          />
+            />
         </Content>
         <Sidebar>
-          { chart.selected.type
-          ? <Message>
-              <div>Type: {chart.selected.type}</div>
-              <div>ID: {chart.selected.id}</div>
-              <br/>
-              {/*
+            { state.selected.type
+            ? <Message>
+                <div>Type: {state.selected.type}</div>
+                <div>ID: {state.selected.id}</div>
+                <br/>
+                {/*
                 We can re-use the onDeleteKey action. This will delete whatever is selected.
                 Otherwise, we have access to the state here so we can do whatever we want.
-              */}
-              <Button onClick={() => stateActions.onDeleteKey({})}>Delete</Button>
+                */}
+                <Button onClick={() => stateActions.onDeleteKey({})}>Delete</Button>
             </Message>
-          : <Message>Click on a Node, Port or Link</Message> }
+            : <Message>Click on a Node, Port or Link</Message> }
         </Sidebar>
-      </Page>
+        </Page>
     )
-  }
 }
+
+const Config: Meta = {
+}
+
+export default Config

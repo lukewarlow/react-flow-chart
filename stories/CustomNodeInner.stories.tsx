@@ -1,4 +1,6 @@
+import {Meta} from '@storybook/react'
 import { cloneDeep, mapValues } from 'lodash'
+import {useState} from 'react'
 import * as React from 'react'
 import styled from 'styled-components'
 import { FlowChart, INodeInnerDefaultProps } from '../src'
@@ -46,23 +48,27 @@ const NodeInnerCustom = ({ node, config }: INodeInnerDefaultProps) => {
   }
 }
 
-export class CustomNodeInnerDemo extends React.Component {
-  public state = cloneDeep(chartSimple)
-  public render () {
-    const chart = this.state
+export const CustomNodeInner = () => {
+    const [state, setState] = useState(cloneDeep(chartSimple))
+
     const stateActions = mapValues(actions, (func: any) =>
-      (...args: any) => this.setState(func(...args))) as typeof actions
+        (...args: any) => setState(func(...args))) as typeof actions
 
     return (
-      <Page>
-        <FlowChart
-          chart={chart}
-          callbacks={stateActions}
-          Components={{
-            NodeInner: NodeInnerCustom,
-          }}
-        />
-      </Page>
+        <Page>
+            <FlowChart
+                chart={state}
+                callbacks={stateActions}
+                Components={{
+                    NodeInner: NodeInnerCustom,
+                }}
+            />
+        </Page>
     )
-  }
 }
+
+
+const Config: Meta = {
+}
+
+export default Config

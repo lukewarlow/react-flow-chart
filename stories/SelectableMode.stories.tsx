@@ -1,9 +1,10 @@
+import {Meta, StoryFn} from '@storybook/react'
 import * as React from 'react'
 import { FlowChartWithState } from '../src'
 import { Code, Content, Message, Page, Sidebar } from './components'
 import { chartSimple } from './misc/exampleChartState'
 
-export const SelectableMode = () => {
+export const SelectableMode: StoryFn = () => {
   return (
     <Page>
       <Content>
@@ -23,3 +24,8 @@ export const SelectableMode = () => {
     </Page>
   )
 }
+
+const Config: Meta = {
+}
+
+export default Config

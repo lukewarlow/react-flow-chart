@@ -1,3 +1,4 @@
+import {Meta, StoryFn} from '@storybook/react'
 import { compact, flatMap, flatten, keyBy, range } from 'lodash'
 import * as React from 'react'
 import styled from 'styled-components'
@@ -89,9 +90,14 @@ const StressTestWithState = () => {
   )
 }
 
-export const StressTestDemo = () => {
+export const StressTest: StoryFn = () => {
   return <StressTestWithState />
 }
+
+const Config: Meta = {
+}
+
+export default Config
 
 const Input = styled.input`
   padding: 5px 5px 5px 10px;

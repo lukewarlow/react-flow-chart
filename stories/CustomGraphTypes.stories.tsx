@@ -1,8 +1,9 @@
+import {Meta, StoryFn} from '@storybook/react'
 import * as React from 'react'
 import { FlowChartWithState, IChart } from '../src'
 import { Page } from './components'
 
-export const CustomGraphTypes = () => {
+export const CustomGraphTypes: StoryFn = ()  => {
   const chart: IChart<number, boolean, string, number> = {
     properties: 5,
     offset: {
@@ -146,3 +147,8 @@ export const CustomGraphTypes = () => {
     </Page>
   )
 }
+
+const Config: Meta = {
+}
+
+export default Config

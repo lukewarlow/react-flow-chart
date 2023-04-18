@@ -190,16 +190,16 @@ const Example = (
 ```
 
 ### With Internal State
-[stories/InternalReactState.tsx](./stories/InternalReactState.tsx)
+[stories/InternalReactState.stories.tsx](./stories/InternalReactState.tsx)
 
 ### With External State
-[stories/ExternalReactState.tsx](./stories/ExternalReactState.tsx)
+[stories/ExternalReactState.stories.tsx](./stories/ExternalReactState.tsx)
 
 ### Readonly Mode
-[stories/ReadonlyMode.tsx](./stories/ReadonlyMode.tsx)
+[stories/ReadonlyModeStories.tsx](./stories/ReadonlyMode.stories.tsx)
 
 ### Other Demos
-[stories/ExternalReactState.tsx](./stories)
+[stories/ExternalReactState.stories.tsx](./stories)
 
 
 ## Contributing

@@ -1,3 +1,4 @@
+import {Meta, StoryFn} from '@storybook/react'
 import * as React from 'react'
 import styled from 'styled-components'
 import { FlowChartWithState, IPortDefaultProps } from '../src'
@@ -34,7 +35,7 @@ const PortCustom = (props: IPortDefaultProps) => (
   </PortDefaultOuter>
 )
 
-export const CustomPortDemo = () => {
+export const CustomPort: StoryFn = ()  => {
   return (
     <Page>
       <FlowChartWithState
@@ -46,3 +47,8 @@ export const CustomPortDemo = () => {
     </Page>
   )
 }
+
+const Config: Meta = {
+}
+
+export default Config

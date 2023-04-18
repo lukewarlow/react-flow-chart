@@ -1,3 +1,4 @@
+import {Meta, StoryFn} from '@storybook/react'
 import * as React from 'react'
 import styled from 'styled-components'
 import { FlowChartWithState, ICanvasOuterDefaultProps } from '../src'
@@ -17,7 +18,7 @@ const CanvasOuterCustom = styled.div<ICanvasOuterDefaultProps>`
   cursor: not-allowed;
 ` as any
 
-export const CustomCanvasOuterDemo = () => {
+export const CustomCanvasOuter: StoryFn  = () => {
   return (
     <Page>
       <FlowChartWithState
@@ -29,3 +30,8 @@ export const CustomCanvasOuterDemo = () => {
     </Page>
   )
 }
+
+const Config: Meta = {
+}
+
+export default Config

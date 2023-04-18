@@ -1,3 +1,4 @@
+import {Meta, StoryFn} from '@storybook/react'
 import * as React from 'react'
 
 import { FlowChartWithState, IChart } from '../src'
@@ -132,10 +133,15 @@ const chartSimpleWithLinkColors: IChart = {
   hovered: {},
 }
 
-export const LinkColors = () => {
+export const LinkColors: StoryFn = () => {
   return (
     <Page>
       <FlowChartWithState initialValue={chartSimpleWithLinkColors} />
     </Page>
   )
 }
+
+const Config: Meta = {
+}
+
+export default Config

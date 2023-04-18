@@ -1,3 +1,4 @@
+import {Meta, StoryFn} from '@storybook/react'
 import * as React from 'react'
 import styled from 'styled-components'
 import { FlowChartWithState } from '../src'
@@ -14,7 +15,7 @@ const Note = styled.div`
   border: 2px solid red;
 `
 
-export const ConfigValidateLinkDemo = () => {
+export const ConfigValidateLink: StoryFn  = () => {
   return (
     <Page>
       <FlowChartWithState
@@ -31,3 +32,8 @@ export const ConfigValidateLinkDemo = () => {
     </Page>
   )
 }
+
+const Config: Meta = {
+}
+
+export default Config
